@@ -6,7 +6,7 @@
 /*   By: dmodrzej <dmodrzej@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:10:58 by dmodrzej          #+#    #+#             */
-/*   Updated: 2024/03/18 19:15:33 by dmodrzej         ###   ########.fr       */
+/*   Updated: 2024/03/20 21:51:40 by dmodrzej         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 int	main(int argc, char *argv[])
 {
 	int fd;
+	int i;
 
 	if (argc != 2)
 		return (1);
@@ -25,8 +26,9 @@ int	main(int argc, char *argv[])
 		fd = open(argv[1], O_RDONLY);
 		if (fd == -1)
 			return (1);
-		// while (get_next_line(fd) != NULL)
-		printf("%s\n", get_next_line(fd));
+		for (i = 0; i < 2; i++)
+			printf("%s", get_next_line(fd));
+		printf("\n");
 		close(fd);
 	}
 	return (0);
