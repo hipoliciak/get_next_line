@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmodrzej <dmodrzej@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:10:00 by dmodrzej          #+#    #+#             */
-/*   Updated: 2024/04/04 19:05:16 by dmodrzej         ###   ########.fr       */
+/*   Updated: 2024/04/04 19:00:35 by dmodrzej         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static char	*extract_line(char *input)
 {
@@ -94,17 +94,17 @@ char	*get_next_line(int fd)
 {
 	char		*buffer;
 	char		*line;
-	static char	*input;
+	static char	*input[10000];
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
 	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buffer)
 		return (0);
-	input = get_input(input, fd, buffer);
-	if (!input)
+	input[fd] = get_input(input[fd], fd, buffer);
+	if (!input[fd])
 		return (0);
-	line = extract_line(input);
-	input = new_input(input);
+	line = extract_line(input[fd]);
+	input[fd] = new_input(input[fd]);
 	return (line);
 }

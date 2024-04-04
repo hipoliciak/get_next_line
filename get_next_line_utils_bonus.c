@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmodrzej <dmodrzej@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:10:36 by dmodrzej          #+#    #+#             */
-/*   Updated: 2024/04/04 18:59:24 by dmodrzej         ###   ########.fr       */
+/*   Updated: 2024/04/04 18:59:10 by dmodrzej         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 size_t	ft_strlen(const char *str)
 {
@@ -70,8 +70,8 @@ char	*ft_strjoin(const char *s1, const char *s2)
 
 char	*ft_strdup(const char *s)
 {
-	char	*str;
-	size_t	i;
+	char			*str;
+	size_t			i;
 
 	i = 0;
 	if (!s)
